@@ -8,6 +8,6 @@ body {
   }
   
   p {
-    font-family: verdana;
+    font-family: Unifont, monospace;
     font-size: 20px;
   }
