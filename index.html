@@ -1,13 +1,53 @@
 <!DOCTYPE html>
-<html>
-<link rel="stylesheet" type="text/css" href="CSS/topstyles.css">
+
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="CSS/main.css">
+
 <head>
-<title>Title</title>
+
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
+
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+    <div class="panel" id="001">
+        
+        <div class="picFrame" id="001">
+
+        </div>
+        <br><br><br>
+        <div class="textFrame" id="001">
+Text<br><br><br><br><br>test
+        </div>
+
+    </div>
+
+    <script>
+
+        $.getJSON('http://www.omdbapi.com/?t=Star+Wars&plot=full&apikey=cb9a68ca', function(data) {
+            
+            var text = `
+                        Title: ${data.Title}<br><br>
+                        Year: ${data.Year}<br><br>
+                        Actors: ${data.Actors}<br><br>
+                        Plot: ${data.Plot}<br><br>
+                        Director: ${data.Director}<br><br>
+                        Writer: ${data.Writer}<br><br>
+                        Rated: ${data.Rated} | Runtime: ${data.Runtime} | Genre: ${data.Genre}
+                        `        
+            
+            $(".textFrame").html(text);
+            
+            var poster = "<img src=\""+data.Poster+"\" alt=\""+data.Title+" poster\">"
+            $(".picFrame").html(poster);
+
+        });
+    </script>
+
 
 </body>
 </html>

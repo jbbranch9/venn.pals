@@ -1,0 +1,31 @@
+body {
+    background-color: lightblue;
+  }
+  
+  h1 {
+    color: black;
+    text-align: center;
+  }
+  
+  p {
+    font-family: sans-serif;
+    font-size: 20px;
+  }
+
+  .panel{
+    border-style: double;
+    border-width: thick;
+    width: 300px;
+    text-align: center;
+  }
+
+  .picFrame{
+
+    width: 189px; 
+    height: 280px;
+
+  }
+
+  .textFrame{
+    text-align: left;
+  }
