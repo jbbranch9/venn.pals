@@ -1,31 +1,53 @@
 body {
-    background-color: lightblue;
+    background-color: rgb(10,10,10);
   }
   
   h1 {
-    color: black;
+    color: white;
     text-align: center;
   }
   
   p {
     font-family: sans-serif;
     font-size: 20px;
+    color: white;
   }
 
-  .panel{
-    border-style: double;
-    border-width: thick;
+  .marquee{
+    border-style: dotted;
+    border-width: 5px;
     width: 300px;
     text-align: center;
+    color: white;
+    padding: 10px;
+    border-color: gold;
+    border-radius: 15px;
+    box-shadow: 
+        5px 5px 20px rgba(255, 223, 0, .15), 
+        -5px 5px 20px rgba(255, 223, 0, .15), 
+        5px -5px 20px rgba(255, 223, 0, .15), 
+        -5px -5px 20px rgba(255, 223, 0, .15), 
+        5px 5px 20px rgba(255, 223, 0, .15) inset, 
+        -5px 5px 20px rgba(255, 223, 0, .15) inset, 
+        5px -5px 20px rgba(255, 223, 0, .15) inset, 
+        -5px -5px 20px rgba(255, 223, 0, .15) inset;
   }
 
   .picFrame{
 
-    width: 189px; 
-    height: 280px;
+    width: 200px; 
+    border-style: hidden;
 
   }
 
   .textFrame{
     text-align: left;
+    border-style: hidden;
   }
+
+  /* Solid border */
+hr.solid {
+
+  color: darkgrey;
+  border-style: dotted;
+}

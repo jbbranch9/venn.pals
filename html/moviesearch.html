@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+
+<head>
+
+    <title>Movie Search</title>
+
+    <!-- import jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+<!-- handles search button function(s) -->
+    <script>
+        function onSearch(){
+
+            // select the input elements and get their values 
+            var inputVal = document.getElementById("titleInput").value;
+            var year = document.getElementById("yearInput").value;
+
+            /* trim leading whitespace */
+            while (inputVal[0]==" ") {
+                inputVal = inputVal.slice(1);
+                if(inputVal[0]!=" ") {
+                    break
+                }
+            }
+
+            // format the input
+            var formattedInput = "";
+
+            var i;
+            for (i=0; i<inputVal.length; i++) {
+                if (inputVal[i]==" ") {
+                    if (i == 0 || i == inputVal.length) {
+                        continue
+                    } else {
+                        formattedInput+="+";
+                    }
+                    
+                } else {
+                    formattedInput+=inputVal[i];
+                }
+            }
+
+            /* construct URL */
+            var yearSearchTerm = "";
+            if (year!=null){
+                yearSearchTerm = "&y="+year;
+            }
+
+            omdbURL = "http://www.omdbapi.com/?t="+formattedInput+yearSearchTerm+"&r=json&plot=full&apikey=cb9a68ca";
+
+            getMovieData(omdbURL);
+        }
+    </script>
+
+    <!-- requests JSON and poster image from OMDB -->
+    <script>
+        function getMovieData(omdbURL) {
+
+            $.getJSON(omdbURL, function(data) {
+                
+                var text = `
+                            ${data.Title} (${data.Year})<br><br>
+                            Actors: ${data.Actors}<br><br>
+                            Plot: ${data.Plot}<br><br>
+                            Director: ${data.Director}<br><br>
+                            Writer: ${data.Writer}<br><br>
+                            Rated: ${data.Rated} | Runtime: ${data.Runtime} | Genre: ${data.Genre}
+                            `        
+                
+                $(".textFrame").html(text);
+                
+                var poster = "<img src=\""+data.Poster+"\" alt=\""+data.Title+" poster\">"
+                $(".picFrame").html(poster);
+            });
+        }
+    </script>
+
+<!-- not working
+    <script>
+        var input = document.getElementById("titleInput");
+        input.addEventListener("keydown", function(event) {
+        
+        if (event.keyCode === 13) {
+
+            alert("You pressed enter.")
+            onSearch();
+        }
+        });
+    </script> -->
+    
+
+<!-- search bar -->
+<div id=searchPanel>
+    <input type="text" class= "searchBar" placeholder="Title (Required)" id="titleInput">
+    <input type="text" class= "searchBar" placeholder="Year" id="yearInput">
+    <select id="types">
+        <option value="Movie" selected>Movie</option>
+        <option value="Show">Show</option>
+        <option value="Episode">Episode</option>
+    </select>
+    <button id="searchButton" type="button" onclick="onSearch()">Search</button>
+</div>
+<br><br>
+
+<!-- marquee panel containing frames for poster and text -->
+    <div class="marquee" id="001">
+        
+        <div class="picFrame" id="001">
+            Poster
+        </div>
+        <hr class="solid">
+        <div class="textFrame" id="001">
+            Text
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>
