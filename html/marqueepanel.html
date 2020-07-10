@@ -55,14 +55,60 @@
                 yearSearchTerm = "&y="+year;
             }
 
-            omdbURL = "http://www.omdbapi.com/?t="+formattedInput+yearSearchTerm+"&r=json&plot=full&apikey=cb9a68ca";
+            omdbURL = "http://www.omdbapi.com/?s="+formattedInput+yearSearchTerm+"&r=json&plot=full&apikey=cb9a68ca";
 
-            getMovieData(omdbURL);
+            $.getJSON(omdbURL, function(data) {
+
+                console.log(data.totalResults);
+                console.log(data.Response);
+
+                if(data.Response == "True") {
+                    //results found
+                    console.log("Results found.");
+                    var count = data.totalResults;
+                    var idList = imdbIdList(data,count);
+                } else {
+                    //no results found
+                    console.log("No results.");
+                    alert("No results.");
+                }
+                
+
+            });
+            
+
+
+            // getMovieData(omdbURL);
         }
     </script>
 
-    <!-- requests JSON and poster image from OMDB -->
     <script>
+        function imdbIdList(data, count) {
+            
+            var pageCount=getPageCount(count);
+            
+            var i;
+            for(i=0; i<count; i++) {
+
+            }
+            return
+        }
+
+        function getPageCount(count) {
+            var pageCount;
+            pageCount = count/10;
+            pageCount = ceil(pageCount);
+            pageCount = 10*pageCount;
+            return pageCount;
+        }
+    </script>
+
+
+
+    <!-- requests JSON and poster image from OMDB -->
+
+
+    <!-- <script>
         function getMovieData(omdbURL) {
 
             $.getJSON(omdbURL, function(data) {
@@ -82,7 +128,7 @@
                 $(".picFrame").html(poster);
             });
         }
-    </script>
+    </script> -->
 
 <!-- not working
     <script>
