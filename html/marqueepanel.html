@@ -77,8 +77,7 @@
             /* trim leading whitespace */
             while (rawInputVal[0]==" ") {
                 rawInputVal = rawInputVal.slice(1);
-            if(rawInputVal[0]!=" ") {
-                break
+
             }
             
             // format the input
@@ -114,7 +113,7 @@
                 yearSearchTerm = "&y="+year;
             }
 
-            omdbURL = "http://www.omdbapi.com/?s="+titleSearchTerm+yearSearchTerm+"&r=json&plot=full&apikey=cb9a68ca";
+            omdbURL = "http://www.omdbapi.com/?s="+titleSearchTerm+yearSearchTerm+"&r=json&plot=full&apikey=4e69186c";
 
             console.log(omdbURL);
 
