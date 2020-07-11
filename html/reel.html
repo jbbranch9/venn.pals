@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reel</title>
+
+    <script src="https://kit.fontawesome.com/08229194c9.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <style>
+        #reel{
+            animation-duration: 3s;
+            animation-direction: reverse;
+        }
+        #reel[name="left"]{
+            animation-delay: .5s;
+            animation-duration: 4s;
+        }
+        #camera{
+            transform: scaleX(3);
+            transform: translate(10px, 0px);
+        }
+
+    </style>
+
+    <div class="reel2reel">
+        <span>
+            <i class="fa fa-radiation-alt fa-spin fa-3x" id="reel" name="left"></i>
+            <i class="fa fa-radiation-alt fa-spin fa-3x" id="reel" name="right"></i>
+        </span>
+        <br>
+        <span>
+            <i class="fa fa-video-camera fa-6x" id="camera"></i>
+        </span>
+    </div>
+
+</body>
+</html>
