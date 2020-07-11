@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="../css/styles.css">
+
+<head>
+
+    <title>Movie Search</title>
+
+    <!-- import jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- search bar -->
+    <div id=searchPanel>
+        <!-- Title field -->
+        <input type="text" class= "searchBar" placeholder="Title (Required)" id="titleInput">
+        <!-- Year field -->
+        <input type="text" class= "searchBar" placeholder="Year" id="yearInput">
+    
+        <!-- type dropdown coming soon
+        <select id="types">
+            <option value="Movie" selected>Movie</option>
+            <option value="Show">Show</option>
+            <option value="Episode">Episode</option>
+        </select> -->
+        
+        <button id="searchButton" type="button" onclick="onSearch()">Search</button>
+    </div>
+
+    <br><br>
+
+    <!-- marquee panel containing frames for poster and text -->
+    <div class="marquee" id="001">
+        
+        <div class="picFrame" id="001">
+            Poster
+        </div>
+        <hr class="solid">
+        <div class="textFrame" id="001">
+            Text
+        </div>
+
+    </div>
+
+
+
+
+
+<!-- handles search button function(s) -->
+    <script>
+        function onSearch(){
+
+            // select the input elements and get their values 
+            var rawInputVal = document.getElementById("titleInput").value;
+            var year = document.getElementById("yearInput").value;
+
+
+
+                var titleSearchTerm = formatSearchTerm(rawInputVal);
+                console.log(titleSearchTerm);
+                
+                var omdbURL = getOmdbURL(titleSearchTerm, year);
+
+        }
+
+
+        
+
+        function formatSearchTerm(rawInputVal) {
+            
+            /* trim leading whitespace */
+            while (rawInputVal[0]==" ") {
+                rawInputVal = rawInputVal.slice(1);
+
+            }
+            
+            // format the input
+            var titleSearchTerm = "";
+
+            var i;
+            for (i=0; i<rawInputVal.length; i++) {
+                if (rawInputVal[i]==" ") {
+                    if (i == 0 || i == rawInputVal.length) {
+                        continue
+                    } else {
+                        titleSearchTerm+="+";
+                    }
+                    
+                } else {
+                    titleSearchTerm+=rawInputVal[i];
+                }
+            }
+            return titleSearchTerm;
+        }
+            
+
+
+
+        
+// year can be null
+        function getOmdbURL(titleSearchTerm, year) {
+
+
+        /* construct URL */
+        var yearSearchTerm = "";
+            if (year!=null){
+                yearSearchTerm = "&y="+year;
+            }
+
+            omdbURL = "http://www.omdbapi.com/?s="+titleSearchTerm+yearSearchTerm+"&r=json&plot=full&apikey=4e69186c";
+
+            console.log(omdbURL);
+
+            return omdbURL;
+        }
+
+
+/*         function searchOmdbMulti() {
+            
+            $.getJSON(omdbURL, function(data) {
+
+            console.log(data.totalResults);
+            console.log(data.Response);
+
+            if(data.Response == "True") {
+                //results found
+                console.log("Results found.");
+                var count = data.totalResults;
+                var idList = imdbIdList(data,count);
+            } else {
+                //no results found
+                console.log("No results.");
+                alert("No results.");
+            }
+
+
+            });
+            
+            
+            return
+        } */
+
+/*     might not need/use this
+        function searchOmdbSing() {
+            return
+        } */
+    </script>
+
+    <script>
+        function imdbIdList(data, count) {
+            
+            var pageCount=getPageCount(count);
+            var page = 1;
+
+            for(page; page<pageCount; page++) {
+                var i;
+                for(i=0; i<10; i++) {
+
+                }
+            }
+
+            return
+        }
+
+// // there are 10 line items per page
+// // page count is total count rounded up to nearest 10
+//         function getPageCount(count) {
+//             var pageCount;
+//             pageCount = count/10;
+//             pageCount = Math.ceil(pageCount);
+//             console.log(pageCount);
+//             return pageCount;
+//         }
+//     </script>
+
+
+//  requests JSON and poster image from OMDB 
+
+
+//   <script>
+//         function getMovieData(omdbURL) {
+
+//             $.getJSON(omdbURL, function(data) {
+                
+//                 var text = `
+//                             ${data.Title} (${data.Year})<br><br>
+//                             Actors: ${data.Actors}<br><br>
+//                             Plot: ${data.Plot}<br><br>
+//                             Director: ${data.Director}<br><br>
+//                             Writer: ${data.Writer}<br><br>
+//                             Rated: ${data.Rated} | Runtime: ${data.Runtime} | Genre: ${data.Genre}
+//                             `        
+                
+//                 $(".textFrame").html(text);
+                
+//                 var poster = "<img src=\""+data.Poster+"\" alt=\""+data.Title+" poster\">"
+//                 $(".picFrame").html(poster);
+//             });
+//         }
+//     </script> 
+
+//  not working
+//     <script>
+//         var input = document.getElementById("titleInput");
+//         input.addEventListener("keydown", function(event) {
+        
+//         if (event.keyCode === 13) {
+
+//             alert("You pressed enter.")
+//             onSearch();
+//         }
+//         });
+//     </script> 
+    
+
+
+
+
+
+
+</body>
+</html>
