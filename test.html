@@ -4,40 +4,82 @@
 
 <style>
     body {
-        background-image: linear-gradient(180deg, #ccc 50%, #fff 50%);
-        background-repeat: no-repeat;
-        height: 100vh;
+        background-color: rgb(10,10,10);
     }
-    .double-border {
-        background-color: #ccc;
-        border: 4px solid #fff;
-        box-shadow:
-        inset 0 0 0 4px #eee,
-        inset 0 0 0 8px #ddd,
-        inset 0 0 0 12px #ccc,
-        inset 0 0 0 16px #bbb,
-        inset 0 0 0 20px #aaa,
-        inset 0 0 0 20px #999,
-        inset 0 0 0 20px #888;
 
-        margin: 0 auto;
-        padding: 3em;
+
+    [class^="marquee"] {
+        background-color: maroon;
+    }
+
+    /* .marquee-fill{
+        background-color: maroon;
+        background: repeating-linear-gradient(to bottom, 
+        maroon 0% 24%, grey 24% 25%, 
+        maroon 25% 49%, grey 49% 50%,
+        maroon 50% 74%, grey 74% 75%, 
+        maroon 75% 99%, grey 99% 100%);
+    } */
+
+    .marquee-border{
         width: 16em;
         height: 16em;
-        position: relative;
+        border-style: dotted;
+        border-width: 5px;
+        border-color: gold;
+        border-radius: 15px;
+        box-shadow: 
+
+            /* inner/outer borders */
+            0px 0px 0px 2px rgba(80,0,0,.85),
+            inset 0px 0px 0px 2px rgba(80, 0, 0, 0.85),
+            
+            
+
+            /* glow effect */
+            5px 5px 20px rgba(255, 223, 0, .15), 
+            -5px 5px 20px rgba(255, 223, 0, .15), 
+            5px -5px 20px rgba(255, 223, 0, .15), 
+            -5px -5px 20px rgba(255, 223, 0, .15), 
+            5px 5px 20px rgba(255, 223, 0, .15) inset, 
+            -5px 5px 20px rgba(255, 223, 0, .15) inset, 
+            5px -5px 20px rgba(255, 223, 0, .15) inset, 
+            -5px -5px 20px rgba(255, 223, 0, .15) inset;
+
+
+            
+
+           
+  }
+
+  .test {
+    width: 14em;
+    height: 14em;
     }
+
+
 </style>
 
 </head>
 <body>
 
-<p>
+<p class="test">
     Test 1
 </p>
 
-<p class="double-border">
-    Test 2
-</p>
+<div class="marquee-border marquee-fill">
+
+    <!-- <div class="marquee-border test">
+
+    </div> -->
+
+</div>
+
+<br><br>
+
+<div class="marquee-border test">
+ test2
+</div>
 
 
 </body>
