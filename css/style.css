@@ -378,23 +378,6 @@ i.contact1 {
 	position: relative;
 	line-height: 0px;
 
-
-	border-style: dotted;
-    border-width: 5px;
-    width: 300px;
-	padding: 5px;
-	margin: 5px;
-    border-color: gold;
-    border-radius: 15px;
-    box-shadow: 
-        3px 3px 8px rgba(255, 223, 0, .2), 
-        -3px 3px 8px rgba(255, 223, 0, .2), 
-        3px -3px 8px rgba(255, 223, 0, .2), 
-        -3px -3px 8px rgba(255, 223, 0, .2), 
-        3px 3px 8px rgba(255, 223, 0, .2) inset, 
-        -3px 3px 8px rgba(255, 223, 0, .2) inset, 
-        3px -3px 8px rgba(255, 223, 0, .2) inset, 
-        -3px -3px 8px rgba(255, 223, 0, .2) inset;
 }
 .nbs-flexisel-item > img {
 	

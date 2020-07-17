@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color: rgb(10,10,10);
   }
   
@@ -13,41 +13,57 @@ body {
     color: white;
   }
 
-  .marquee{
-    border-style: dotted;
-    border-width: 5px;
-    width: 300px;
-    text-align: center;
-    color: white;
-    padding: 10px;
-    border-color: gold;
-    border-radius: 15px;
-    box-shadow: 
-        5px 5px 20px rgba(255, 223, 0, .15), 
-        -5px 5px 20px rgba(255, 223, 0, .15), 
-        5px -5px 20px rgba(255, 223, 0, .15), 
-        -5px -5px 20px rgba(255, 223, 0, .15), 
-        5px 5px 20px rgba(255, 223, 0, .15) inset, 
-        -5px 5px 20px rgba(255, 223, 0, .15) inset, 
-        5px -5px 20px rgba(255, 223, 0, .15) inset, 
-        -5px -5px 20px rgba(255, 223, 0, .15) inset;
-  }
 
-  .picFrame{
-
-    width: 200px; 
-    border-style: hidden;
-
-  }
-
-  .textFrame{
-    text-align: left;
-    border-style: hidden;
-  }
 
   /* Solid border */
-hr.solid {
+/* hr.solid {
 
   color: darkgrey;
   border-style: dotted;
+}  */
+
+[class^="marquee"] {
+  background-color: maroon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+
+}
+
+/* .marquee-fill{
+  background-color: maroon;
+  background: repeating-linear-gradient(to bottom, 
+  maroon 0% 24%, grey 24% 25%, 
+  maroon 25% 49%, grey 49% 50%,
+  maroon 50% 74%, grey 74% 75%, 
+  maroon 75% 99%, grey 99% 100%);
+} */
+
+.marquee-outer{
+  width: 16em;
+  height: 10em;
+}
+
+.marquee-border{
+  border-style: dotted;
+  border-width: 5px;
+  border-color: gold;
+  border-radius: 15px;
+  display: flex;
+  margin: auto;
+  box-shadow: 
+      /* inner/outer borders */
+      0px 0px 0px 2px rgba(80,0,0,.85),
+      inset 0px 0px 0px 2px rgba(80, 0, 0, 0.85),
+      /* glow effect */
+      5px 5px 20px rgba(255, 223, 0, .15), 
+      -5px 5px 20px rgba(255, 223, 0, .15), 
+      5px -5px 20px rgba(255, 223, 0, .15), 
+      -5px -5px 20px rgba(255, 223, 0, .15), 
+      5px 5px 20px rgba(255, 223, 0, .15) inset, 
+      -5px 5px 20px rgba(255, 223, 0, .15) inset, 
+      5px -5px 20px rgba(255, 223, 0, .15) inset, 
+      -5px -5px 20px rgba(255, 223, 0, .15) inset;        
 }
