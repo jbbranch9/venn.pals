@@ -1,84 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<style>
-    body {
-        background-color: rgb(10,10,10);
-    }
-
-
-    [class^="marquee"] {
-        background-color: maroon;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
-        text-align: center;
-
-    }
-
-    /* .marquee-fill{
-        background-color: maroon;
-        background: repeating-linear-gradient(to bottom, 
-        maroon 0% 24%, grey 24% 25%, 
-        maroon 25% 49%, grey 49% 50%,
-        maroon 50% 74%, grey 74% 75%, 
-        maroon 75% 99%, grey 99% 100%);
-    } */
-
-    .marquee-outer{
-        width: 16em;
-        height: 10em;
-    }
-
-    .marquee-border{
-        border-style: dotted;
-        border-width: 5px;
-        border-color: gold;
-        border-radius: 15px;
-        display: flex;
-        margin: auto;
-        box-shadow: 
-            /* inner/outer borders */
-            0px 0px 0px 2px rgba(80,0,0,.85),
-            inset 0px 0px 0px 2px rgba(80, 0, 0, 0.85),
-            /* glow effect */
-            5px 5px 20px rgba(255, 223, 0, .15), 
-            -5px 5px 20px rgba(255, 223, 0, .15), 
-            5px -5px 20px rgba(255, 223, 0, .15), 
-            -5px -5px 20px rgba(255, 223, 0, .15), 
-            5px 5px 20px rgba(255, 223, 0, .15) inset, 
-            -5px 5px 20px rgba(255, 223, 0, .15) inset, 
-            5px -5px 20px rgba(255, 223, 0, .15) inset, 
-            -5px -5px 20px rgba(255, 223, 0, .15) inset;        
-  }
-
-    [class^="marquee"] #box1 {
-        width: 50px;
-        height: 350px;
-
-    }
-
-
-</style>
-
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<p>test</p>
+<style>
+	.container{
+    	color: "red";
+    }
+</style>
 
-<div class="marquee-border marquee-outer">
-    <div class="marquee-border" id="box1">
-        test
-    </div>
-
+<div class="container">
+  <h3>Popover Example</h3>
+  <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
 </div>
 
-<br><br>
-
-
-
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();   
+});
+</script>
 
 </body>
 </html>
