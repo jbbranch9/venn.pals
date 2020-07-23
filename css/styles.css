@@ -1,14 +1,18 @@
-/* body {
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+body {
     background-color: rgb(10,10,10);
   }
   
   h1 {
     color: white;
     text-align: center;
+    font-family: "Raleway";
   }
   
   p {
-    font-family: sans-serif;
+    font-family: "Ubuntu";
     font-size: 20px;
     color: white;
   }
@@ -16,11 +20,11 @@
 
 
   /* Solid border */
-/* hr.solid {
+hr.solid {
 
   color: darkgrey;
   border-style: dotted;
-}  */
+} 
 
 [class^="marquee"] {
   background-color: maroon;
@@ -32,14 +36,14 @@
 
 }
 
-/* .marquee-fill{
+.marquee-fill{
   background-color: maroon;
   background: repeating-linear-gradient(to bottom, 
   maroon 0% 24%, grey 24% 25%, 
   maroon 25% 49%, grey 49% 50%,
   maroon 50% 74%, grey 74% 75%, 
   maroon 75% 99%, grey 99% 100%);
-} */
+}
 
 .marquee-outer{
   width: 16em;
